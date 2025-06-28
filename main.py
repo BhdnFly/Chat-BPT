@@ -27,7 +27,6 @@ class ChatBot:
         return self.tourism_types
 
     def get_tourism_subtypes(self, tourism_type):
-        # Use polymorphism to get subtypes
         tourism_obj = create_tourism_type(tourism_type)
         return tourism_obj.get_subtypes()
 
@@ -37,16 +36,12 @@ class ChatBot:
             return f"Great! I'll use {user_input} as your location. What type of tourism are you interested in? Options: {', '.join(self.tourism_types)}"
 
         if user_input in self.tourism_types:
-            # Use polymorphism to create the appropriate tourism type
             self.current_tourism = create_tourism_type(user_input)
-
-            # Get description and recommendation using polymorphic methods
             description = self.current_tourism.get_description()
             subtypes = self.current_tourism.get_subtypes()
 
             response = f"{description}\n\nFor {user_input} tourism, we offer: {', '.join(subtypes)}"
 
-            # If city is set, add a recommendation
             if self.city:
                 recommendation = self.current_tourism.recommend_attraction(self.city)
                 response += f"\n\nRecommended for you: {recommendation}"
