@@ -1,14 +1,13 @@
 # Chat-BPT: Chat Bot of Polish Tourism
 
-A Python-based console chatbot for Polish tourism using OOP principles.
+A simple Python-based console chatbot for Polish tourism.
 
 ## Features
 
 - Interactive console-based chatbot
 - Information about tourism options in Poland
 - City-based recommendations
-- Different tourism types (mountain, sea, cultural, spa, eco)
-- Command system for easy navigation
+- Different tourism types (mountain, sea, cultural)
 
 ## Getting Started
 
@@ -17,7 +16,7 @@ A Python-based console chatbot for Polish tourism using OOP principles.
 - Python 3.6 or higher
 - pip (Python package manager)
 
-### Installation
+### Running the Chatbot
 
 1. Clone the repository:
    ```
