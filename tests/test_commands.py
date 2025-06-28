@@ -1,7 +1,5 @@
-"""
-Test cases for command processing functionality
-"""
-import pytest
+# Test cases for command processing functionality
+
 from unittest.mock import patch, MagicMock
 
 def test_help_command():

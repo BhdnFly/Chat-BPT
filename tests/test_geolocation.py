@@ -1,7 +1,5 @@
-"""
-Test cases for geolocation functionality
-"""
-import pytest
+# Test cases for geolocation functionality
+
 from unittest.mock import patch, MagicMock
 
 def test_distance_calculation():

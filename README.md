@@ -44,10 +44,30 @@ A simple Python-based console chatbot for Polish tourism.
 
 ## Testing
 
-Run the tests using the unittest module:
+Run the tests using the Makefile:
 
 ```
-python -m unittest tests
+make test          # Run all tests
+```
+
+Or use unittest directly:
+
+```
+python -m unittest discover tests
+```
+
+## Running the Chatbot
+
+You can run the chatbot using the Makefile:
+
+```
+make run
+```
+
+Or directly with Python:
+
+```
+python main.py
 ```
 
 ## License

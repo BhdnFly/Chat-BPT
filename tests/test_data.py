@@ -1,6 +1,5 @@
-"""
-Test cases for data structures used in the chatbot
-"""
+# Test cases for data structures used in the chatbot
+
 from unittest.mock import patch, MagicMock
 
 def test_city_data_structure():

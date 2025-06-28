@@ -49,20 +49,51 @@ class TestChatBot(unittest.TestCase):
         invalid_subtypes = self.chatbot.get_tourism_subtypes("invalid")
         self.assertEqual(len(invalid_subtypes), 0)
 
-    def test_input_processing(self):
-        """Test processing user input"""
+    def test_input_processing_city(self):
+        """Test processing city input"""
         # Test city input
         response = self.chatbot.process_input("Warsaw")
         self.assertIn("Warsaw", response)
         self.assertEqual(self.chatbot.get_city(), "Warsaw")
 
-        # Test tourism type input
+    def test_input_processing_tourism(self):
+        """Test processing tourism type input"""
+        # Test tourism type input without city
         response = self.chatbot.process_input("mountain")
         self.assertIn("mountain", response)
+        self.assertIn("Explore the beautiful mountains", response)
 
-        # Test invalid input
+        # Test tourism type input with city
+        self.chatbot.set_city("Warsaw")
+        response = self.chatbot.process_input("mountain")
+        self.assertIn("Recommended for you", response)
+        self.assertIn("Kampinos National Park", response)
+
+        # Test different tourism type with different city
+        self.chatbot.set_city("Gdansk")
+        response = self.chatbot.process_input("sea")
+        self.assertIn("Sopot Beach", response)
+
+    def test_polymorphic_recommendations(self):
+        """Test polymorphic recommendations for different cities and tourism types"""
+        city_tourism_pairs = [
+            ("Warsaw", "mountain"),
+            ("Warsaw", "sea"),
+            ("Warsaw", "cultural"),
+            ("Krakow", "mountain"),
+            ("Gdansk", "sea")
+        ]
+
+        for city, tourism_type in city_tourism_pairs:
+            self.chatbot.set_city(city)
+            response = self.chatbot.process_input(tourism_type)
+            self.assertIn(city, response)
+            self.assertIn(tourism_type, response)
+
+    def test_invalid_input(self):
+        """Test invalid input"""
         response = self.chatbot.process_input("something random")
-        self.assertIn("don't understand", response)
+        self.assertIn("not sure what you mean", response)
 
 
 if __name__ == '__main__':

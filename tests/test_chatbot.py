@@ -1,7 +1,5 @@
-"""
-Test cases for the main chatbot functionality
-"""
-import pytest
+# Test cases for the main chatbot functionality
+
 from unittest.mock import patch, MagicMock
 
 def test_chatbot_initialization():

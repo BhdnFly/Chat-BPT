@@ -17,6 +17,20 @@ The goal is to design a Python-based console chatbot for Polish tourism using OO
  * Provides distance and voivodeship to both. + highlited user comment
  * Allows users to change their city at any time, to restart the program(take advantage of geopy)
 
+ ## OOP Implementation
+ * Base class (TourismType) with common functionality for all tourism types
+ * Derived classes (MountainTourism, SeaTourism, CulturalTourism) that inherit from base class
+ * Polymorphic behavior through method overriding (get_description, recommend_attraction)
+ * Factory pattern to create appropriate tourism type objects based on user input
+ * Encapsulation of data and behavior within classes
+ * Clean separation of concerns between chatbot logic and tourism domain
+
+## Polymorphism Examples
+ * Each tourism type provides its own implementation of recommend_attraction() method
+ * The chatbot can use any tourism type object interchangeably through the common interface
+ * Different tourism types respond differently to the same method calls
+ * New tourism types can be added without changing the chatbot logic
+
 ## Data Structure
  * Define clear schemas for tourism types, locations, and ratings
  * Structure data to allow easy transition from dictionaries to databases
