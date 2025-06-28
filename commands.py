@@ -39,17 +39,13 @@ class CommandProcessor:
 
     def _help_command(self, args):
         """Handle the help command"""
-        return """
-              Available commands:
-              /help - Display this help message
-              /city [name] - Change your current city
-              /restart - Restart the conversation
-              /info [attraction] - Get detailed information about an attraction
-              /nearby [type] - Find attractions of specific type near current city
-              /exit or /quit - Exit the program
-
-              You can also type a city name to set your location, or a tourism type to get recommendations.
-              """
+        return "You can use the following commands: \n" \
+               "/help - Display available commands \n" \
+               "/city [name] - Change current city \n" \
+               "/restart - Reset the conversation \n" \
+               "/info [attraction] - Get detailed information about an attraction \n" \
+               "/nearby [type] - Find attractions of specific type near current city \n" \
+               "/exit or /quit - Exit the chatbot"
 
     def _city_command(self, args):
         """Handle the city command"""

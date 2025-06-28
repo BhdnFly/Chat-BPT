@@ -1,8 +1,6 @@
 # Tests for the tourism classes demonstrating polymorphism
 
-import unittest
-import sys
-import os
+import unittest, sys, os
 
 # Add the parent directory to the path so we can import the tourism module
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))

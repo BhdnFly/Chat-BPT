@@ -23,7 +23,7 @@ class ChatBot:
                "/restart - Reset the conversation \n" \
                "/info [attraction] - Get detailed information about an attraction \n" \
                "/nearby [type] - Find attractions of specific type near current city \n" \
-               "/exit - Exit the chatbot"
+               "/exit or /quit - Exit the chatbot"
 
     def set_city(self, city_name):
         self.city = city_name
