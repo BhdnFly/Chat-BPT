@@ -16,6 +16,7 @@ class ChatBot:
 
     def get_greeting(self):
         return "Welcome to Chat-BPT! Please tell me which city in Poland you are in. \n" \
+               "Example: > Lodz \n" \
                "\n" \
                "You can use the following commands: \n" \
                "/help - Display available commands \n" \
