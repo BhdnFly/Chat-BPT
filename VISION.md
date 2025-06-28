@@ -3,12 +3,12 @@ The goal is to design a Python-based console chatbot for Polish tourism using OO
 
 ## Technology Stack
  * Language: Python 3.x
- * Unit testing: pytest
+ * Unit testing: unittest
  * Architecture: Object-Oriented Programming, using inheritance and polymorphism
  * Data store: Simulated with in-memory dictionaries (extendable internal or external DBs)
  * Testing: Manual testing via CLI
 
-## Project sope
+## Project scope
  * Greets users and asks for their city in Poland. Use only 3 cities per voivodeships for the initial implementation
  * Displays a list of commands (e.g. /help) or no command is given
  * Recommends tourism types (mountain, sea, cultural, spa, eco). Each turism class to have 3 diferent types
