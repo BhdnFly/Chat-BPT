@@ -24,14 +24,6 @@ run:
 test:
 	$(PYTHON) -m unittest discover tests
 
-# Run chatbot tests only
-test-chat:
-	$(PYTHON) -m unittest tests.test_chatbot
-
-# Run tourism tests only
-test-tour:
-	$(PYTHON) -m unittest tests.test_tourism
-
 # Clean Python cache files
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +

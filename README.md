@@ -21,7 +21,7 @@ A simple Python-based console chatbot for Polish tourism.
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/Chat-BPT.git
+   git clone https://github.com/BhdnFly/Chat-BPT.git
    cd Chat-BPT
    ```
 

@@ -1,7 +1,5 @@
-#!/usr/bin/env python3
-"""
-Chat-BPT - Chat Bot of Polish Tourism
-"""
+# Main entry point of the application Chat-BPT (Chat Bot of Polish Tourism)
+
 from tourism import create_tourism_type
 from commands import CommandProcessor
 
