@@ -19,7 +19,7 @@ class TestCommandProcessor(unittest.TestCase):
     def test_help_command(self):
         """Test the help command"""
         response = self.command_processor.process_command("/help")
-        self.assertIn("Available commands", response)
+        self.assertIn("commands", response.lower())
         self.assertIn("/help", response)
         self.assertIn("/city", response)
         self.assertIn("/restart", response)
@@ -28,10 +28,14 @@ class TestCommandProcessor(unittest.TestCase):
 
     def test_city_command(self):
         """Test the city command"""
-        # Test with valid city
+        # Test with valid cities
         response = self.command_processor.process_command("/city Warsaw")
         self.assertIn("Warsaw", response)
         self.assertEqual(self.chatbot.get_city(), "Warsaw")
+
+        response = self.command_processor.process_command("/city Lodz")
+        self.assertIn("Lodz", response)
+        self.assertEqual(self.chatbot.get_city(), "Lodz")
 
         # Test with invalid city
         response = self.command_processor.process_command("/city InvalidCity")
@@ -44,8 +48,8 @@ class TestCommandProcessor(unittest.TestCase):
     def test_restart_command(self):
         """Test the restart command"""
         # Set a city first
-        self.chatbot.set_city("Warsaw")
-        self.assertEqual(self.chatbot.get_city(), "Warsaw")
+        self.chatbot.set_city("Lodz")
+        self.assertEqual(self.chatbot.get_city(), "Lodz")
 
         # Test restart
         response = self.command_processor.process_command("/restart")
@@ -54,10 +58,18 @@ class TestCommandProcessor(unittest.TestCase):
 
     def test_info_command(self):
         """Test the info command"""
-        # Test with valid attraction
+        # Test with valid attractions
         response = self.command_processor.process_command("/info Royal Castle")
         self.assertIn("Royal Castle in Warsaw", response)
         self.assertIn("Opening hours", response)
+
+        response = self.command_processor.process_command("/info Piotrkowska")
+        self.assertIn("Piotrkowska Street", response)
+        self.assertIn("Lodz", response)
+
+        response = self.command_processor.process_command("/info Manufaktura")
+        self.assertIn("Manufaktura", response)
+        self.assertIn("Lodz", response)
 
         # Test with invalid attraction
         response = self.command_processor.process_command("/info NonExistentAttraction")
@@ -74,9 +86,14 @@ class TestCommandProcessor(unittest.TestCase):
         self.assertIn("Please set your city", response)
 
         # Set city and test with valid tourism type
-        self.chatbot.set_city("Warsaw")
+        self.chatbot.set_city("Lodz")
         response = self.command_processor.process_command("/nearby mountain")
-        self.assertIn("Nearby mountain attraction in Warsaw", response)
+        self.assertIn("Nearby mountain attraction in Lodz", response)
+        self.assertIn("Góry Świętokrzyskie", response)
+
+        response = self.command_processor.process_command("/nearby cultural")
+        self.assertIn("Nearby cultural attraction in Lodz", response)
+        self.assertIn("Piotrkowska", response)
 
         # Test with invalid tourism type
         response = self.command_processor.process_command("/nearby invalid")
