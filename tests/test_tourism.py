@@ -25,6 +25,7 @@ class TestTourismPolymorphism(unittest.TestCase):
         self.assertEqual(tourism.get_subtypes(), ["hiking", "climbing", "skiing"])
         self.assertEqual(tourism.get_description(), "Explore the beautiful mountains of Poland")
         self.assertEqual(tourism.recommend_attraction("Warsaw"), "Day trip to Kampinos National Park")
+        self.assertEqual(tourism.recommend_attraction("Lodz"), "Day trip to Góry Świętokrzyskie (Holy Cross Mountains)")
         self.assertEqual(tourism.recommend_attraction("Unknown"), "Mountain trip from Unknown")
 
     def test_sea_tourism(self):
@@ -34,6 +35,7 @@ class TestTourismPolymorphism(unittest.TestCase):
         self.assertEqual(tourism.get_subtypes(), ["beaches", "sailing", "diving"])
         self.assertEqual(tourism.get_description(), "Enjoy Poland's beautiful Baltic coastline")
         self.assertEqual(tourism.recommend_attraction("Gdansk"), "Relaxing day at Sopot Beach")
+        self.assertEqual(tourism.recommend_attraction("Lodz"), "Visit to Arturówek Lake complex with beaches and water activities")
 
     def test_cultural_tourism(self):
         """Test the CulturalTourism class"""
@@ -42,6 +44,7 @@ class TestTourismPolymorphism(unittest.TestCase):
         self.assertEqual(tourism.get_subtypes(), ["museums", "historical sites", "theaters"])
         self.assertEqual(tourism.get_description(), "Discover Poland's rich cultural heritage")
         self.assertEqual(tourism.recommend_attraction("Krakow"), "Wawel Castle and Historic Center")
+        self.assertEqual(tourism.recommend_attraction("Lodz"), "Piotrkowska Street and Manufaktura - former factory complex turned cultural center")
 
     def test_polymorphic_behavior(self):
         """Test polymorphic behavior with different tourism types"""
@@ -62,6 +65,13 @@ class TestTourismPolymorphism(unittest.TestCase):
         recommendations = [tourism.recommend_attraction("Warsaw") for tourism in tourism_list]
         self.assertEqual(len(recommendations), 4)
         self.assertNotEqual(recommendations[1], recommendations[2])  # Mountain vs Sea
+
+        # Test recommendations for Lodz across different types
+        lodz_recommendations = [tourism.recommend_attraction("Lodz") for tourism in tourism_list]
+        self.assertEqual(len(lodz_recommendations), 4)
+        self.assertIn("Góry Świętokrzyskie", lodz_recommendations[1])  # Mountain
+        self.assertIn("Arturówek", lodz_recommendations[2])  # Sea
+        self.assertIn("Piotrkowska", lodz_recommendations[3])  # Cultural
 
     def test_factory_function(self):
         """Test the factory function for creating tourism types"""

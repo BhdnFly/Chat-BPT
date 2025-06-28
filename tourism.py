@@ -40,7 +40,8 @@ class MountainTourism(TourismType):
         attractions = {
             "Warsaw": "Day trip to Kampinos National Park",
             "Krakow": "Excursion to Tatra Mountains",
-            "Gdansk": "Trip to Kashubian Switzerland"
+            "Gdansk": "Trip to Kashubian Switzerland",
+            "Lodz": "Day trip to Góry Świętokrzyskie (Holy Cross Mountains)"
         }
         return attractions.get(city, f"Mountain trip from {city}")
 
@@ -61,7 +62,8 @@ class SeaTourism(TourismType):
         attractions = {
             "Warsaw": "Weekend trip to the Baltic coast",
             "Krakow": "Visit to Mazurian Lakes",
-            "Gdansk": "Relaxing day at Sopot Beach"
+            "Gdansk": "Relaxing day at Sopot Beach",
+            "Lodz": "Visit to Arturówek Lake complex with beaches and water activities"
         }
         return attractions.get(city, f"Water activities near {city}")
 
@@ -82,7 +84,8 @@ class CulturalTourism(TourismType):
         attractions = {
             "Warsaw": "The Royal Castle and Old Town",
             "Krakow": "Wawel Castle and Historic Center",
-            "Gdansk": "Main Town Hall and Neptune's Fountain"
+            "Gdansk": "Main Town Hall and Neptune's Fountain",
+            "Lodz": "Piotrkowska Street and Manufaktura - former factory complex turned cultural center"
         }
         return attractions.get(city, f"Cultural sites in {city}")
 

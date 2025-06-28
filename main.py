@@ -10,7 +10,7 @@ class ChatBot:
     """Simple chatbot for Polish tourism"""
     def __init__(self):
         self.city = None
-        self.valid_cities = ["Warsaw", "Krakow", "Gdansk"]
+        self.valid_cities = ["Warsaw", "Krakow", "Gdansk", "Lodz"]
         self.tourism_types = ["mountain", "sea", "cultural"]
         self.current_tourism = None
 

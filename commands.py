@@ -83,7 +83,13 @@ class CommandProcessor:
                            "Located on Wawel Hill in Krakow.",
             "sopot beach": "Sopot Beach - famous Baltic Sea beach with Europe's longest wooden pier. "
                           "Open 24/7, best visited during summer months. "
-                          "Located in Sopot, near Gdansk."
+                          "Located in Sopot, near Gdansk.",
+            "piotrkowska street": "Piotrkowska Street - the main street of Lodz and one of the longest commercial streets in Europe. "
+                                 "Famous for its restaurants, bars, and beautiful architecture. "
+                                 "Located in the center of Lodz.",
+            "manufaktura": "Manufaktura - former factory complex turned into a shopping and entertainment center. "
+                          "Opening hours: 10:00-22:00 daily. "
+                          "Located in the heart of Lodz."
         }
 
         # Try to find the attraction by name (case insensitive)
